@@ -44,8 +44,6 @@
             integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
             crossorigin="anonymous"></script>
 
-
-
         <title>
             CodeAid
         </title>
@@ -200,11 +198,41 @@
                 </div>
               
             </div>
-            
           
-        </div?>
+        </div>
        
-        
+        <div class="container">
+            <p class="title">Speakers</p>
+            <div class="row" id="speaker_container">
+            </div>
+
+            <script>
+                fetch('https://sessionize.com/api/v2/oc82zel7/view/SpeakerWall')
+                    .then(response => response.json())
+                    .then(data => appendData(data))
+                    .catch(err => console.log("Error: " + err));
+
+                function appendData(data) {
+                    var mainContainer = document.getElementById('speaker_container')
+                    for (const speaker of data) {
+                        let speakerItem = `
+                            <div class="card">
+                                <img src="${speaker.profilePicture}" alt="Avatar" >
+                                <div class="container">
+                                    <h5 class="org_name">${speaker.firstName} ${speaker.lastName}</h5>
+                                    <p class="support_text">${speaker.tagLine}</p>
+                                </div>
+                            </div>
+                        `
+                        var div = document.createElement('speakerItem')
+                        div.innerHTML = speakerItem
+                        div.className += 'col-lg-3'
+                        mainContainer.appendChild(div)
+                    }
+                }
+            </script>
+          
+        </div>
 
     </body>
 </html>

@@ -27,6 +27,11 @@ html {
   font-size: 15px;
   font-weight: 500;
   color: rgb(66, 66, 66);
+  text-overflow: ellipsis;
+  display: -webkit-box;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
 }
 
 .title {
