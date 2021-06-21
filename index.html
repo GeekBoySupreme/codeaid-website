@@ -70,9 +70,10 @@
                     </div>
                    
                 </p>
+
                 <br/>
                 <p class="title">For a cause</p>
-                <p class="support_text">The world is facing an unprecedented crisis, and we believe we should do our bit. Be a part of CodeAid and donate for a cause.
+                <p class="support_text_1">The world is facing an unprecedented crisis, and we believe we should do our bit. Be a part of CodeAid and donate for a cause.
                     All the proceeds directly go to the <b><a href="https://hemkuntfoundation.com/" target="blank">Hemkunt Foundation</a></b> via <b>Milaap</b>.
                     <br/><br/>
                     <a href="https://hemkuntfoundation.com/" target="blank"><img src="assets/hemkunt.png" height="40px" style="margin-right: 15px" /></a>
@@ -81,9 +82,8 @@
                     <a class="donate_button" href="https://milaap.org/fundraisers/support-hemkunt-foundation-9" target="blank"><img src="assets/donate.svg" width="20px" style="margin-right: 13px;"/> Donate</a>
                 </p>
 
-                <br>
-                <br>
-
+                <br/>
+                <br/>
 
                 
                 <br/>
@@ -97,116 +97,17 @@
                 <img class="big_img" src="assets/big_art.svg"/>
                </div>
             </div>
-            <div>
-                <p class="title">The Team</p>
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <img src="assets/Piyush.jpg" alt="Avatar" >
-                            <div class="container">
-                                <h5 class="org_name">Piyush Maheshwari</h5>
-                                <p class="support_text">Android @ Zomato</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <img src="assets/SagarViradya.png" alt="Avatar" >
-                            <div class="container">
-                                <h5 class="org_name">Sagar Viradiya</h5>
-                                <p class="support_text">Android Developer, GDE</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <img src="assets/rivuChakraborty.png" alt="Avatar">
-                            <div class="container">
-                                <h5 class="org_name">Rivu Chakraborty</h5>
-                                <p class="support_text">Kotlin Developer, GDE</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <img src="assets/ShuvamManna.jpg" alt="Avatar">
-                            <div class="container">
-                                <h5 class="org_name">Shuvam Manna</h5>
-                                <p class="support_text">Draws Rectangles</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <img src="assets/PawanKumar.jpg" alt="Avatar">
-                            <div class="container">
-                                <h5 class="org_name">Pawan Kumar</h5>
-                                <p class="support_text">Flutter Developer, GDE</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3">
-                        <div class="card">
-                            <img src="assets/PareshMayani.jpg" alt="Avatar">
-                            <div class="container">
-                                <h5 class="org_name">Paresh Mayani</h5>
-                                <p class="support_text">Practice Head, Simform<br/>Organizer, GDG Ahmedabad</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <br/><br/>
-                    <div class="col-lg-6">
-                        <div class="schedule_card">
-                           
-                            <br />
-                            <p class="title">
-                                Schedule
-                            </p>
-                            <p class="support_text">Coming Soon</p>
-                            <br />
-                            
-                        </div>
-                        
-                    </div>
-
-                    <div class="col-lg-6">
-                        <div class="speaker_card">
-                           
-                            <br />
-                            <p class="title">
-                                Speakers
-                            </p>
-                            <p class="support_text">Coming Soon</p>
-                            <br />
-                            
-                        </div>
-                        
-                    </div>
-
-                    <div class="col-lg-12">
-                        <br />
-                        <br />
-                        <p class="footer_link">Find us at <a href="https://twitter.com/codeaidconf" target="blank">@CodeAidConf</a></p>
-                        <br/>
-                    </div>
-                </div>
-              
-            </div>
+            
           
         </div>
        
         <div class="container">
-            <p class="title">Speakers</p>
+            <p class="title" style="text-align: center">Speakers</p>
             <div class="row" id="speaker_container">
             </div>
 
             <script>
+                let placeholder = 'https://avatars0.githubusercontent.com/u/33372542?s=88&v=4'
                 fetch('https://sessionize.com/api/v2/oc82zel7/view/SpeakerWall')
                     .then(response => response.json())
                     .then(data => appendData(data))
@@ -217,7 +118,7 @@
                     for (const speaker of data) {
                         let speakerItem = `
                             <div class="card">
-                                <img src="${speaker.profilePicture}" alt="Avatar" >
+                                <img src="${speaker.profilePicture || placeholder}" alt="Avatar" >
                                 <div class="container">
                                     <h5 class="org_name">${speaker.firstName} ${speaker.lastName}</h5>
                                     <p class="support_text">${speaker.tagLine}</p>
@@ -232,6 +133,98 @@
                 }
             </script>
           
+        </div>
+
+        <div class="container">
+            <br/>
+            <br/><br />
+            <p class="title" style="text-align: center">The Team</p>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card">
+                        <img src="assets/Piyush.jpg" alt="Avatar">
+                        <div class="container">
+                            <h5 class="org_name">Piyush Maheshwari</h5>
+                            <p class="support_text">Android @ Zomato</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <img src="assets/SagarViradya.png" alt="Avatar">
+                        <div class="container">
+                            <h5 class="org_name">Sagar Viradiya</h5>
+                            <p class="support_text">Android Developer, GDE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card">
+                        <img src="assets/rivuChakraborty.png" alt="Avatar">
+                        <div class="container">
+                            <h5 class="org_name">Rivu Chakraborty</h5>
+                            <p class="support_text">Kotlin Developer, GDE</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-lg-3">
+                    <div class="card">
+                        <img src="assets/ShuvamManna.jpg" alt="Avatar">
+                        <div class="container">
+                            <h5 class="org_name">Shuvam Manna</h5>
+                            <p class="support_text">Draws Rectangles</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-lg-3">
+                    <div class="card">
+                        <img src="assets/PawanKumar.jpg" alt="Avatar">
+                        <div class="container">
+                            <h5 class="org_name">Pawan Kumar</h5>
+                            <p class="support_text">Flutter Developer, GDE</p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-lg-3">
+                    <div class="card">
+                        <img src="assets/PareshMayani.jpg" alt="Avatar">
+                        <div class="container">
+                            <h5 class="org_name">Paresh Mayani</h5>
+                            <p class="support_text">Practice Head, Simform<br />Organizer, GDG Ahmedabad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                
+                <div class="col-lg-6">
+                    <br /><br />
+                    <div class="schedule_card">
+        
+                        <br />
+                        <p class="title">
+                            Schedule
+                        </p>
+                        <p class="support_text">Coming Soon</p>
+                        <br />
+        
+                    </div>
+        
+                </div>
+        
+                <div class="col-lg-12">
+                    <br />
+                    <br />
+                    <p class="footer_link">Find us at <a href="https://twitter.com/codeaidconf" target="blank">@CodeAidConf</a>
+                    </p>
+                    <br />
+                </div>
+            </div>
+        
         </div>
 
     </body>
