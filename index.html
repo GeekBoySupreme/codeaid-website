@@ -234,10 +234,19 @@
             <p class="title" style="text-align: center">Schedule</p>
 
             <div class="row">
-                <p> Day 1 </p>
-                <div id="schedule_day1"></div>
-                <p> Day 2 </p>
-                <div id="schedule_day2"></div>
+                <div class="col-lg-6">
+                    <p style="text-align:center;" class="title"> Day 1 </p>
+                    <div id="schedule_day1" >
+                        
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <p style="text-align:center;" class="title"> Day 2 </p>
+                    <div id="schedule_day2" >
+                        
+                    </div>
+                </div>
             </div>
 
             <script>
@@ -247,15 +256,39 @@
                     .catch(err => console.log("Error: " + err));
 
                 function addScheduleData(data) {
-                    let day1 = data.sessions.filter( it => it.startsAt.substring(0, 10) === "2021-06-26")
-                    let day2 = data.sessions.filter( it => it.startsAt.substring(0, 10) === "2021-06-27")
+                    populateData(data, "2021-06-26", 'schedule_day1')
+                    populateData(data, "2021-06-27", 'schedule_day2')
+                }
 
-                    console.log(day1)
+                function populateData(data, date, elementId) {
+                    // Filter all the sessions for the given date.
+                    let day = data.sessions.filter( it => it.startsAt.substring(0, 10) === date )
+                    let speakerSessionMap = new Map()
 
-                    let day1SessionSpeakers = day1.flatMap ( it => it.speakers )
-                    let day1Speakers = data.speakers.filter( it => day1SessionSpeakers.includes(it.id) ) 
-                    
-                    day1Speakers.forEach( it => console.log(`${it.fullName}`) )
+                    for (session of day) {
+                        for (speaker of data.speakers) {
+                            let temp = speaker.sessions.filter( it => it === parseInt(session.id) )
+                            if (temp.length !== 0) {
+                                speakerSessionMap.set(speaker, session)
+                            } 
+                        }
+                    }
+
+                    var dayContainer = document.getElementById(elementId)
+                    for (let [speaker, session] of speakerSessionMap) {
+                        let scheduleItem = `
+                                <div class="card">
+                                    <img src="${speaker.profilePicture || placeholder}" alt="Avatar" >
+                                    <div class="container">
+                                        <h5 class="org_name">${speaker.fullName}</h5>
+                                        <p class="support_text">${session.title} : ${session.description}</p>
+                                    </div>
+                                </div>
+                            `
+                        var div = document.createElement('scheduleItem')
+                        div.innerHTML = scheduleItem
+                        dayContainer.appendChild(div)
+                    }
                 }
             </script>
 
