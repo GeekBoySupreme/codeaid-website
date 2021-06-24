@@ -227,5 +227,39 @@
         
         </div>
 
+
+        <div class="container">
+            <br/>
+            <br/><br />
+            <p class="title" style="text-align: center">Schedule</p>
+
+            <div class="row">
+                <p> Day 1 </p>
+                <div id="schedule_day1"></div>
+                <p> Day 2 </p>
+                <div id="schedule_day2"></div>
+            </div>
+
+            <script>
+                fetch('https://sessionize.com/api/v2/oc82zel7/view/All')
+                    .then(response => response.json())
+                    .then(data => addScheduleData(data))
+                    .catch(err => console.log("Error: " + err));
+
+                function addScheduleData(data) {
+                    let day1 = data.sessions.filter( it => it.startsAt.substring(0, 10) === "2021-06-26")
+                    let day2 = data.sessions.filter( it => it.startsAt.substring(0, 10) === "2021-06-27")
+
+                    console.log(day1)
+
+                    let day1SessionSpeakers = day1.flatMap ( it => it.speakers )
+                    let day1Speakers = data.speakers.filter( it => day1SessionSpeakers.includes(it.id) ) 
+                    
+                    day1Speakers.forEach( it => console.log(`${it.fullName}`) )
+                }
+            </script>
+
+        </div>
+
     </body>
 </html>
