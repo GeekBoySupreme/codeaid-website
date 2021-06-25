@@ -55,8 +55,8 @@
             <div class="row">
                <div class="col-lg-6">
                 <br/>
-                <br/>
-                <img src="assets/aid_logo.svg" width="140px"/>
+                <a href="" target="_blank"><img src="assets/newton_school.png" style="position: relative; left: -20px;" width="200px"/> <span class="support_text" style="color:grey; font-size: 14px">presents</span></a>
+                <img src="assets/aid_logo.svg" width="140px" style="margin-bottom: 15px;"/><br/><span style="color:grey; font-size: 13px; font-weight: 600;"> powered by &nbsp;</span><img src="https://streamyard.com/resources/assets/images/logo.png" width="120px"/>
                 <br/>
                 <span class="date_filter"><img src="assets/red_dot.svg" width="10px" style="margin-right: 13px;"/> 26 - 27 June </span>
                 <br/>
@@ -133,6 +133,72 @@
                 }
             </script>
           
+        </div>
+
+        <div class="container">
+            <br />
+            <br /><br />
+            <p class="title" style="text-align: center">Schedule</p>
+        
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="day_title"> Day 1️⃣ </p>
+                    <div id="schedule_day1">
+        
+                    </div>
+                </div>
+        
+                <div class="col-lg-6">
+                    <p class="day_title"> Day 2️⃣ </p>
+                    <div id="schedule_day2">
+        
+                    </div>
+                </div>
+            </div>
+        
+            <script>
+                fetch('https://sessionize.com/api/v2/oc82zel7/view/All')
+                    .then(response => response.json())
+                    .then(data => addScheduleData(data))
+                    .catch(err => console.log("Error: " + err));
+
+                function addScheduleData(data) {
+                    populateData(data, "2021-06-26", 'schedule_day1')
+                    populateData(data, "2021-06-27", 'schedule_day2')
+                }
+
+                function populateData(data, date, elementId) {
+                    // Filter all the sessions for the given date.
+                    let day = data.sessions.filter(it => it.startsAt.substring(0, 10) === date)
+                    let speakerSessionMap = new Map()
+
+                    for (session of day) {
+                        for (speaker of data.speakers) {
+                            let temp = speaker.sessions.filter(it => it === parseInt(session.id))
+                            if (temp.length !== 0) {
+                                speakerSessionMap.set(speaker, session)
+                            }
+                        }
+                    }
+
+                    var dayContainer = document.getElementById(elementId)
+                    for (let [speaker, session] of speakerSessionMap) {
+                        let scheduleItem = `
+                                        <div class="schedule_card">
+                                            <div class="container">
+                                                <h5 class="org_name">${session.title}</h5>
+                                                <h5 class="speaker_name">${speaker.fullName}</h5>
+                                                <p class="support_text">${session.description || ' '}</p>
+                                            </div>
+                                        </div>
+                                    `
+                        var div = document.createElement('scheduleItem')
+                        div.innerHTML = scheduleItem
+                        dayContainer.appendChild(div)
+                    }
+                }
+            </script>
+        
         </div>
 
         <div class="container">
@@ -251,22 +317,38 @@
             </div>
         
             <div class="row">
-                
+        <div class="col-lg-6">
+            <a href="" target="_blank"><img src="assets/newton_school.png" style="position: relative; left: -20px;"
+                    width="200px" />
+                <span class="support_text" style="color:grey; font-size: 14px">presents</span></a>
+            <img src="assets/aid_logo.svg" width="140px" style="margin-bottom: 15px;" /><br /><span
+                style="color:grey; font-size: 13px; font-weight: 600;"> powered by &nbsp;</span><img
+                src="https://streamyard.com/resources/assets/images/logo.png" width="120px" />
+            <br />
+            <br />
+        </div>
                 <div class="col-lg-6">
-                    <br /><br />
-                    <div class="schedule_card">
-        
-                        <br />
-                        <p class="title">
-                            Schedule
-                        </p>
-                        <p class="support_text">Coming Soon</p>
-                        <br />
-        
-                    </div>
-        
+                    <br />
+                    <p class="title">For a cause</p>
+                    <p class="support_text_1">The world is facing an unprecedented crisis, and we believe we should do our bit. Be a part of
+                        CodeAid and donate for a cause.
+                        All the proceeds directly go to the <b><a href="https://hemkuntfoundation.com/" target="blank">Hemkunt
+                                Foundation</a></b> via <b>Milaap</b>.
+                        <br /><br />
+                        <a href="https://hemkuntfoundation.com/" target="blank"><img src="assets/hemkunt.png" height="40px"
+                                style="margin-right: 15px" /></a>
+                        <a href="https://milaap.org/fundraisers/support-hemkunt-foundation-9" target="blank"><img src="assets/milaap.png"
+                                height="40px" style="margin-right: 15px" /></a>
+                        <br /><br />
+                        <a class="donate_button" href="https://milaap.org/fundraisers/support-hemkunt-foundation-9" target="blank"><img
+                                src="assets/donate.svg" width="20px" style="margin-right: 13px;" /> Donate</a>
+                    </p>
+                    
+                    <br />
                 </div>
-        
+               
+
+                
                 <div class="col-lg-12">
                     <br />
                     <br />
