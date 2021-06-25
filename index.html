@@ -235,14 +235,14 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <p style="text-align:center;" class="title"> Day 1 </p>
+                    <p class="day_title"> Day 1️⃣ </p>
                     <div id="schedule_day1" >
                         
                     </div>
                 </div>
 
                 <div class="col-lg-6">
-                    <p style="text-align:center;" class="title"> Day 2 </p>
+                    <p class="day_title"> Day 2️⃣ </p>
                     <div id="schedule_day2" >
                         
                     </div>
@@ -277,9 +277,9 @@
                     var dayContainer = document.getElementById(elementId)
                     for (let [speaker, session] of speakerSessionMap) {
                         let scheduleItem = `
-                                <div class="card">
-                                    <img src="${speaker.profilePicture || placeholder}" alt="Avatar" >
+                                <div class="schedule_card">
                                     <div class="container">
+                                        <h5 class="org_name">${session.title}</h5>
                                         <h5 class="org_name">${speaker.fullName}</h5>
                                         <p class="support_text">${session.title} : ${session.description}</p>
                                     </div>
