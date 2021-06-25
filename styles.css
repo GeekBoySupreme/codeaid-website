@@ -226,12 +226,39 @@ body::-webkit-scrollbar-thumb {
   font-size: 23px;
   font-weight: 600;
   padding: 20px 0px;
-  margin: 1px auto;
+  text-align: center;
 }
 
 .schedule_card {
-  padding: 5px 15px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 15px;
   background: white;
-  margin: 5px 0px;
+  margin: 5px 0px 15px 5px;
+}
+
+.schedule_card .org_name {
+  color: rgb(44, 79, 235);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.schedule_card .speaker_name {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgb(78, 78, 78);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.speaker_profile_pic {
+  border-radius: 50px;
+  margin-right: 15px;
+}
+
+.schedule_card .support_text {
+  font-size: 14px;
+  color: rgb(116, 116, 116);
 }
