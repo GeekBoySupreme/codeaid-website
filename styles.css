@@ -87,7 +87,7 @@ a {
   font-size: 17px;
   margin: 10px 6px 10px 0px;
   color: white;
-  background-color: rgb(60, 93, 255);
+  background-color: rgb(219, 64, 37);
   padding: 14px 18px;
   border-radius: 50px;
 
@@ -108,6 +108,7 @@ a:hover {
 }
 .big_img {
   margin-left: 20px;
+  width: 100%;
 }
 
 b a {
@@ -115,18 +116,18 @@ b a {
 }
 
 b a:hover {
-  color: rgb(60, 93, 255);
+  color: rgb(255, 148, 60);
 }
 
 .footer_link {
   font-size: 12px;
   font-weight: 600;
-  color: rgb(73, 73, 73);
+  color: rgb(66, 33, 20);
 }
 
 .footer_link a {
   text-decoration: none;
-  color: rgb(60, 93, 255);
+  color: rgb(255, 148, 60);
 }
 
 .footer_link a:hover {
@@ -216,7 +217,7 @@ body::-webkit-scrollbar-thumb {
 .speaker_card {
   font-size: 17px;
   color: rgb(255, 255, 255) !important;
-  background-color: rgb(59, 103, 197);
+  background-color: rgb(243, 157, 77);
   padding: 14px 30px;
   border-radius: 20px;
   margin-bottom: 15px;
@@ -237,7 +238,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schedule_card .org_name {
-  color: rgb(44, 79, 235);
+  color: rgb(168, 105, 23);
   font-size: 18px;
   font-weight: 600;
 }
