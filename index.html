@@ -186,8 +186,9 @@
                         let scheduleItem = `
                                         <div class="schedule_card">
                                             <div class="container">
+                                                <p class="timestamp">${ session.startsAt.substring(11, 16) }</p>
                                                 <h5 class="org_name">${session.title}</h5>
-                                                <h5 class="speaker_name">${speaker.fullName} • ${ session.startsAt.substring(11,16) }</h5>
+                                                <h5 class="speaker_name">${speaker.fullName}</h5>
                                                 <p class="support_text">${session.description || ' '}</p>
                                             </div>
                                         </div>

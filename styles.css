@@ -87,7 +87,7 @@ a {
   font-size: 17px;
   margin: 10px 6px 10px 0px;
   color: white;
-  background-color: rgb(36, 129, 206);
+  background-color: rgb(243, 52, 19);
   padding: 14px 18px;
   border-radius: 50px;
 
@@ -95,6 +95,12 @@ a {
   align-items: center;
   justify-content: center;
   width: 220px;
+}
+
+.timestamp {
+  color: rgb(48, 16, 6);
+  font-weight: 600;
+  font-size: 14px;
 }
 
 .button_container {
@@ -190,7 +196,7 @@ body::-webkit-scrollbar-thumb {
 
 .org_name {
   font-size: 20px;
-  color: rgb(13, 14, 19);
+  color: rgb(86, 112, 245);
   margin-top: 10px;
 }
 
@@ -238,7 +244,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .schedule_card .org_name {
-  color: rgb(168, 105, 23);
+  color: rgb(49, 111, 226);
   font-size: 18px;
   font-weight: 600;
 }
